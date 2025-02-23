@@ -7,7 +7,7 @@ import type {
 import { LinkPreset } from './types/config'
 
 export const siteConfig: SiteConfig = {
-  title: 'mordecai',
+  title: 'm0rd3cai',
   subtitle: 'Blog',
   lang: 'es',         // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko', 'es', 'th'
   themeColor: {
@@ -52,8 +52,8 @@ export const navBarConfig: NavBarConfig = {
 
 export const profileConfig: ProfileConfig = {
   avatar: 'assets/images/mordecai.png',  // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-  name: 'mordecai',
-  bio: '- 🚩 CTF Player\n- 💻 Pentester',
+  name: 'm0rd3cai',
+  bio: '💻 Pentester - 🚩 CTF Player',
   links: [
     {
       name: 'Twitter',
