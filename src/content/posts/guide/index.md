@@ -8,23 +8,20 @@ category: Pivoting
 draft: false
 ---
 
-> Cover image source: [Source](https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/208fc754-890d-4adb-9753-2c963332675d/width=2048/01651-1456859105-(colour_1.5),girl,_Blue,yellow,green,cyan,purple,red,pink,_best,8k,UHD,masterpiece,male%20focus,%201boy,gloves,%20ponytail,%20long%20hair,.jpeg)
 
-This blog template is built with [Astro](https://astro.build/). For the things that are not mentioned in this guide, you may find the answers in the [Astro Docs](https://docs.astro.build/).
+## Índice
+- [Introducción](#introducción)
+- [Local Port Forwarding](#capítulo-1)
+- [Remote Port Forwarding](#capítulo-2)
+- [Dynamic Port Forwarding](#conclusión)
 
-## Front-matter of Posts
+## introducción
 
-```yaml
----
-title: My First Blog Post
-published: 2023-09-09
-description: This is the first post of my new Astro blog.
-image: ./cover.jpg
-tags: [Foo, Bar]
-category: Front-end
-draft: false
----
-```
+El pivoting es una técnica esencial para acceder a sistemas internos a través de un equipo intermediario. Una de las herramientas más utilizadas para este propósito es **SSH (Secure Shell)**, que permite tunelizar tráfico de manera segura y eficiente.
+En este artículo, exploraremos tres técnicas clave de **port forwarding** en SSH:
+- Local Port Forwarding: Permite acceder a servicios en redes remotas a través de un puerto local.
+- Remote Port Forwarding: Expone servicios locales a redes externas mediante un túnel SSH.
+- Dynamic Port Forwarding: Funciona como un proxy SOCKS para enrutar tráfico hacia múltiples destinos a través de un host intermediario.
 
 | Attribute     | Description                                                                                                                                                                                                 |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
