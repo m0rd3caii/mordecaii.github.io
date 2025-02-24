@@ -55,8 +55,7 @@ Desglose:
 - <usuario>: Nombre de usuario para la conexión SSH.
 - @<ip>: IP o nombre del servidor SSH.
 
-
-IMAGEN FW1.PNG
+![img1](../../../assets/images/shh-portforwarding/fw1.png)
 
 Comando: 
 
@@ -66,9 +65,7 @@ ssh -L 80:192.168.20.21:80 mordecai@192.168.10.20
 
 Por lo que en este punto, si nos vamos al navegador **manteniendo la sesión SSH abierta** y vamos a la dirección: http://localhost/, veremos el servidor web:
 
-
-IMAGEN LOCALWEB1.PNG
-
+![img1](../../../assets/images/shh-portforwarding/localweb1.png)
 
 
 ## Remote Port Forwarding
