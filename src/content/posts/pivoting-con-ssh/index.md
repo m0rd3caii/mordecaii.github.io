@@ -48,12 +48,12 @@ ssh -L <Nuestro puerto local que usaremos>:<Host remoto>:<Puerto remoto> <usuari
 ```
 Desglose:
 
-- L: Habilita un túnel local.
-- <\Nuestro puerto local>: Puerto en tu máquina local.
-- <\Host remoto>: Dirección del host remoto al que deseas acceder.
-- <\Puerto remoto>: El puerto del servicio en el host remoto.
-- <\usuario>: Nombre de usuario para la conexión SSH.
-- @<\ip>: IP o nombre del servidor SSH.
+- `-L`: Habilita un túnel local.
+- `<Nuestro puerto local>`: Puerto en tu máquina local.
+- `<Host remoto>`: Dirección del host remoto al que deseas acceder.
+- `<Puerto remoto>`: El puerto del servicio en el host remoto.
+- `<usuario>`: Nombre de usuario para la conexión SSH.
+- `@<ip>`: IP o nombre del servidor SSH.
 
 ![img1](../../../assets/images/shh-portforwarding/fw1.png)
 
