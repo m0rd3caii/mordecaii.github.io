@@ -71,7 +71,7 @@ const bannerOffsetByPosition = {
 const bannerOffset =
   bannerOffsetByPosition[siteConfig.banner.position || 'center']
 
-const gaId = import.meta.env.VITE_GA_ID;
+const gaID = process.env.VITE_GA_ID;
 ---
 
 <!DOCTYPE html>
@@ -157,7 +157,7 @@ const gaId = import.meta.env.VITE_GA_ID;
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
 		
-		  gtag('config', '${gaId}');
+		  gtag('config', gaId);
 		</script>
 		
 		  <!-- Aquí van el resto de las metas y configuraciones que ya tienes -->
