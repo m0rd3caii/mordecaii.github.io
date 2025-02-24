@@ -2,7 +2,7 @@
 title: Pivoting con SSH
 published: 2025-02-24
 description: "Uso de ssh para pivotar en la red."
-image: "./cover.jpeg"
+image: "./portada.png"
 tags: ["Pivoting", "Ssh", "Port Forwarding"]
 category: Pivoting
 draft: false
@@ -137,3 +137,7 @@ El uso de SSH para realizar pivoting y redirigir puertos dentro de redes privada
 Sin embargo, es importante tener en cuenta que las conexiones SSH deben mantenerse activas para que el Remote Port Forwarding y el Dynamic Port Forwarding continúen funcionando, ya que si se interrumpe la sesión, los túneles también se cerrarán.
 
 Estas técnicas son fundamentales en escenarios de pentesting y auditorías de seguridad, donde el acceso remoto a servicios internos se convierte en una necesidad. Implementar correctamente estas configuraciones puede mejorar significativamente nuestra capacidad para pivotar y explorar redes protegidas.
+
+
+
+![img6](../../../assets/images/shh-portforwarding/hmm-mmm.gif)
