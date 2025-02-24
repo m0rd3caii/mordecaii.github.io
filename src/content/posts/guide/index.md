@@ -65,7 +65,7 @@ ssh -L 80:192.168.20.21:80 mordecai@192.168.10.20
 
 Por lo que en este punto, si nos vamos al navegador **manteniendo la sesión SSH abierta** y vamos a la dirección: http://localhost/, veremos el servidor web:
 
-![img1](../../../assets/images/shh-portforwarding/localweb1.png)
+![img2](../../../assets/images/shh-portforwarding/localweb1.png)
 
 
 ## Remote Port Forwarding
