@@ -23,6 +23,9 @@ En este artículo, exploraremos tres técnicas clave de **port forwarding** en S
 - Remote Port Forwarding: Expone servicios locales a redes externas mediante un túnel SSH.
 - Dynamic Port Forwarding: Funciona como un proxy SOCKS para enrutar tráfico hacia múltiples destinos a través de un host intermediario.
 
+
+
+
 | Attribute     | Description                                                                                                                                                                                                 |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `title`       | The title of the post.                                                                                                                                                                                      |
