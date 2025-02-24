@@ -13,7 +13,8 @@ draft: false
 - [Introducción](#Introducción)
 - [Local Port Forwarding](#Local-Port-Forwarding)
 - [Remote Port Forwarding](#Remote-Port-Forwarding)
-- [Dynamic Port Forwarding](#conclusión)
+- [Dynamic Port Forwarding](#Dynamic-Port-Forwarding)
+- [Conclusión](#Conclusión)
 
 ## Introducción
 
@@ -25,14 +26,13 @@ En este artículo, exploraremos tres técnicas clave de **port forwarding** en S
 
 
 ## Entorno de pruebas
-s
 
 - 3 Equipos:
     - **Máquina atacante**: Kali Linux => 192.168.10.10
     - **Máquina servidor SSH**: Ubuntu  => 192.168.10.20, 192.168.20.20
     - **Máquina servidor WEB**: Ubuntu  => 192.168.20.21
 
-IMAGEN AQUI DE LA RED
+![img0](../../../assets/images/shh-portforwarding/diagram.png)
 
 
 El objetivo es acceder desde Kali hasta el Ubuntu que aloja el servidor web. Según la distribución de las redes mencionadas anteriormente, podemos notar rápidamente que no existe una conexión directa entre ambos equipos. No obstante, aprovecharemos el Ubuntu que funciona como servidor SSH y que, además, tiene acceso a ambas redes para establecer la comunicación entre Kali y el servidor web.
@@ -89,30 +89,51 @@ Entonces, volviendo a la práctica, ejecutariamos lo siguiente en el Ubuntu (ser
 
 ![img3](../../../assets/images/shh-portforwarding/rfw1.png)
 
-
-
-
-
-| Attribute     | Description                                                                                                                                                                                                 |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title`       | The title of the post.                                                                                                                                                                                      |
-| `published`   | The date the post was published.                                                                                                                                                                            |
-| `description` | A short description of the post. Displayed on index page.                                                                                                                                                   |
-| `image`       | The cover image path of the post.<br/>1. Start with `http://` or `https://`: Use web image<br/>2. Start with `/`: For image in `public` dir<br/>3. With none of the prefixes: Relative to the markdown file |
-| `tags`        | The tags of the post.                                                                                                                                                                                       |
-| `category`    | The category of the post.                                                                                                                                                                                   |
-| `draft`        | If this post is still a draft, which won't be displayed.                                                                                                                                                    |
-
-## Where to Place the Post Files
-
-
-
-Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
+Comando: 
 
 ```
-src/content/posts/
-├── post-1.md
-└── post-2/
-    ├── cover.png
-    └── index.md
+ssh -R 80:192.168.20.21:80 mordecai@192.168.10.10
 ```
+Así, al iniciar sesión en Kali, le estamos indicando que habilite el puerto 80 y lo dirija hacia el sistema Debian que funciona como servidor web. Esto es posible porque el Debian desde el que establecemos la conexión tiene acceso a ambas redes, lo que permite su interconexión.
+
+Con esto configurado, si desde Kali accedemos a ``localhost``, estaremos dirigiendo la conexión al servicio alojado en el servidor Debian a través del puerto 80.
+
+![img4](../../../assets/images/shh-portforwarding/localweb2.png)
+
+>>>Importante: Si la conexión SSH se interrumpe, el Remote Port Forwarding dejará de funcionar, lo que impedirá el acceso al servicio redirigido.
+
+
+## Dynamic Port Forwarding
+
+
+Dynamic Port Forwarding permite, a diferencia de los otros tipos de reenvío de puertos (Local y Remote), crear un túnel que redirige el tráfico de múltiples puertos a través de un solo puerto usando el protocolo SOCKS. Esto te permite usar aplicaciones, como un navegador, para enrutar todo el tráfico de red de manera segura a través de una conexión SSH, sin tener que configurar puertos específicos para cada aplicación.
+
+Sintaxis:
+
+```sh
+ssh -D <puerto local que actuará de proxy> <usuario>@<IP>
+```
+
+Configuracion del navegador para usar SOCKS5 como proxy:
+
+![img5](../../../assets/images/shh-portforwarding/Socks5Config.png)
+
+
+Una vez configurado:
+
+![img5](../../../assets/images/shh-portforwarding/Socks5localWeb.png)
+
+>>>Importante: Usa el mismo puerto del socks5.
+
+
+## Conclusión
+
+El uso de SSH para realizar pivoting y redirigir puertos dentro de redes privadas es una técnica poderosa y versátil que nos permite acceder a sistemas que de otro modo serían inaccesibles debido a la falta de una conexión directa. A través de las tres técnicas de Port Forwarding — Local, Remote y Dynamic — podemos manipular el tráfico de manera eficiente y segura.
+
+- Local Port Forwarding nos da la capacidad de acceder a servicios remotos desde nuestra máquina local a través de un túnel seguro.
+- Remote Port Forwarding permite exponer servicios locales a través de un servidor remoto, facilitando el acceso a redes internas de manera controlada.
+- Dynamic Port Forwarding nos ofrece la posibilidad de crear un túnel dinámico para redirigir múltiples puertos usando SOCKS, proporcionando una forma flexible y segura de navegar por la red.
+
+Sin embargo, es importante tener en cuenta que las conexiones SSH deben mantenerse activas para que el Remote Port Forwarding y el Dynamic Port Forwarding continúen funcionando, ya que si se interrumpe la sesión, los túneles también se cerrarán.
+
+Estas técnicas son fundamentales en escenarios de pentesting y auditorías de seguridad, donde el acceso remoto a servicios internos se convierte en una necesidad. Implementar correctamente estas configuraciones puede mejorar significativamente nuestra capacidad para pivotar y explorar redes protegidas.
