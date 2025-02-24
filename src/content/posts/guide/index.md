@@ -2,7 +2,7 @@
 title: Pivoting con SSH
 published: 2025-02-24
 description: "Uso de ssh para pivotar en la red."
-image: "./portada.png"
+image: "./portada2.png"
 tags: ["Pivoting", "Ssh", "Port Forwarding"]
 category: Pivoting
 draft: false
