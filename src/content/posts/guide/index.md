@@ -49,11 +49,11 @@ ssh -L <Nuestro puerto local que usaremos>:<Host remoto>:<Puerto remoto> <usuari
 Desglose:
 
 - L: Habilita un túnel local.
-- <Nuestro puerto local>: Puerto en tu máquina local.
-- <Host remoto>: Dirección del host remoto al que deseas acceder.
-- <Puerto remoto>: El puerto del servicio en el host remoto.
-- <usuario>: Nombre de usuario para la conexión SSH.
-- @<ip>: IP o nombre del servidor SSH.
+- <\Nuestro puerto local>: Puerto en tu máquina local.
+- <\Host remoto>: Dirección del host remoto al que deseas acceder.
+- <\Puerto remoto>: El puerto del servicio en el host remoto.
+- <\usuario>: Nombre de usuario para la conexión SSH.
+- @<\ip>: IP o nombre del servidor SSH.
 
 ![img1](../../../assets/images/shh-portforwarding/fw1.png)
 
@@ -87,7 +87,7 @@ ssh -R <puerto_remoto>:<host_local>:<puerto_local> <usuario>@<ip_remota>
 
 Entonces, volviendo a la práctica, ejecutariamos lo siguiente en el Ubuntu (servidor SSH):
 
-
+![img3](../../../assets/images/shh-portforwarding/rfw1.png)
 
 
 
