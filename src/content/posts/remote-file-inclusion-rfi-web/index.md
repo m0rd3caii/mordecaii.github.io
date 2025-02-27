@@ -2,7 +2,7 @@
 title: Remote File Inclusion (RFI)
 published: 2025-02-24
 description: "Explotación de la vulnerabilidad Remote File Inclusion (RFI) para ejecutar comandos remotos en servidores vulnerables."
-image: "./portada.png"
+image: "./RFI.png"
 tags: ["RFI", "Web", "Pentesting"]
 category: Web
 draft: false
